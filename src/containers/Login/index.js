@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { requestAuthenticate, receiveUnauthorized, receiveAuthenticate } from '../../actions/auth';
+import { requestAuthenticate, receiveUnauthorized, receiveAuthenticate, logout } from '../../actions/auth';
 import LoginBox from '../../components/LoginBox'
 import fetch from 'isomorphic-fetch';
 
 const mapStateToProps = (state) => {
   return {
-    token: localStorage.getItem('auth_token')
+    isAuthenticated: state.isAuthenticated
   };
 }
 
@@ -25,12 +25,18 @@ const mapDispatchToProps = (dispatch) => {
 
       fetch('http://localhost:4000/auth_user', loginData)
         .then(response => {
-          response.json()
-            .then(resp => {
-              dispatch(receiveAuthenticate(resp.auth_token));
-            });
+          if(response.status >= 400) {
+            dispatch(receiveUnauthorized());
+          } else {
+            response.json()
+              .then(resp => {
+                dispatch(receiveAuthenticate(resp.auth_token));
+              });
+          }
         });
-      dispatch(receiveUnauthorized());
+    },
+    logout: () => {
+      dispatch(logout());
     }
   }
 }

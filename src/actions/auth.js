@@ -18,3 +18,9 @@ export const receiveAuthenticate = (token) => {
     }
   }
 }
+
+export const logout = () => {
+  return {
+    type: 'LOGOUT'
+  }
+} 

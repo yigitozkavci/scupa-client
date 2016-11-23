@@ -1,9 +1,7 @@
-import { combineReducers } from 'redux';
-
 const authenticate = (state = {
   isFetching: false,
   error: false,
-  token: ''
+  isAuthenticated: false
 }, action) => {
   switch(action.type) {
     case 'REQUEST_AUTHENTICATE':
@@ -11,6 +9,7 @@ const authenticate = (state = {
         isFetching: true,
         error: false
       })
+
     case 'RECEIVE_UNAUTHORIZED':
       return Object.assign({}, state, {
         isFetching: false,
@@ -21,11 +20,19 @@ const authenticate = (state = {
       localStorage.setItem('auth_token', action.data.token);
       return Object.assign({}, state, {
         isFetching: false,
-        error: false
+        error: false,
+        isAuthenticated: true
       })
+
+    case 'LOGOUT':
+      localStorage.removeItem('auth_token');
+      return Object.assign({}, state, {
+        isAuthenticated: false
+      })
+
     default:
       return state;
   }
 }
 
-export default combineReducers([authenticate]);
+export default authenticate;

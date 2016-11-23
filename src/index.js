@@ -6,7 +6,9 @@ import './index.css';
 import reducers from './reducers';
 import Login from './containers/Login';
 
-let store = createStore(reducers);
+let store = createStore(reducers, {
+  isAuthenticated: localStorage.getItem('auth_token')
+});
 
 ReactDOM.render(
   <Provider store={store}>
