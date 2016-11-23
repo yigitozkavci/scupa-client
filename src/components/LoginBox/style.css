@@ -1,2 +1,5 @@
-body p {
+body p.authenticated {
   color: green; }
+
+body p.not-authenticated {
+  color: red; }

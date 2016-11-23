@@ -1,5 +1,9 @@
-body {
-  p {
+body p {
+  &.authenticated {
     color: green;
+  }
+
+  &.not-authenticated {
+    color: red;
   }
 }
