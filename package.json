@@ -6,7 +6,9 @@
     "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "concurrently": "^3.1.0",
     "isomorphic-fetch": "^2.2.1",
+    "node-sass": "^3.13.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^4.4.6",
@@ -14,7 +16,7 @@
     "redux": "^3.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "./node_modules/.bin/concurrently -r './node_modules/.bin/node-sass src -w -o src -r' 'react-scripts start'",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
