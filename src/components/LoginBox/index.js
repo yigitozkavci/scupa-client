@@ -7,19 +7,26 @@ const LoginBox = ({ isAuthenticated, isFetching, authenticate, logout }) => {
   let loadingSpinner;
   if(isFetching)
     loadingSpinner = (<span>Loading...</span>)
+  let authButton = 
+    isAuthenticated
+      ? <button onClick={ logout }>Logout</button>
+      : <button onClick={ () => authenticate(email.value, password.value) }>Authenticate</button>
   return (
-    <div>
-      <p className={ isAuthenticated ? 'authenticated' : 'not-authenticated' }>{ status }</p>
-      <button onClick={ () => authenticate(email.value, password.value) }>Authenticate</button>
-      <button onClick={ logout }>Logout</button>
-      { loadingSpinner }
-      <h2>Login Form</h2>
-      <input type="email" ref={ node => {
-        email = node
-      }} />
-      <input type="password" ref={ node => {
-        password = node
-      }} />
+    <div className="loginbox-container">
+      <div className="loginbox">
+        <h2>Login Form</h2>
+        <input className="form-control" type="email" ref={ node => {
+          email = node
+        }} />
+        <input className="form-control" type="password" ref={ node => {
+          password = node
+        }} />
+        <p>
+          { authButton }
+        </p>
+        { loadingSpinner }
+        <p className={ isAuthenticated ? 'authenticated' : 'not-authenticated' }>{ status }</p>
+      </div>
     </div>
   );
 }

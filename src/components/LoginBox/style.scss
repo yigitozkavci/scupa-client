@@ -1,9 +1,22 @@
-body p {
-  &.authenticated {
-    color: green;
+body {
+  p {
+    &.authenticated {
+      color: green;
+    }
+
+    &.not-authenticated {
+      color: red;
+    }
   }
 
-  &.not-authenticated {
-    color: red;
+  .loginbox-container {
+    width: 100%;
+    text-align: center;
+
+    .loginbox {
+      display: inline-block;
+      width: auto;
+    }
   }
+
 }

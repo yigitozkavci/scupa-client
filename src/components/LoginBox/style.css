@@ -3,3 +3,11 @@ body p.authenticated {
 
 body p.not-authenticated {
   color: red; }
+
+body .loginbox-container {
+  width: 100%;
+  text-align: center; }
+
+body .loginbox-container .loginbox {
+  display: inline-block;
+  width: auto; }

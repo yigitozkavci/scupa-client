@@ -1,0 +1,17 @@
+{
+  "name": "scupa-client",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/yigitozkavci/scupa-client-react",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
