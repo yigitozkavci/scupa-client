@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';
 import LoginPage from './containers/LoginPage';
-import SchoolsPage from './containers/SchoolsPage';
+import School from './school/Container';
 import '../vendor/bootstrap/dist/css/bootstrap.min.css';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 import Home from './components/Home';
@@ -22,7 +22,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="/login" component={LoginPage} />
-        <Route path="/schools" component={SchoolsPage} />
+        <Route path="/schools" component={School} />
       </Route>
     </Router>
   </Provider>,

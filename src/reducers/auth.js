@@ -1,8 +1,7 @@
 const auth = (state = {
   isFetching: false,
   error: false,
-  isAuthenticated: false
-}, action) => {
+  isAuthenticated: false }, action) => {
   switch(action.type) {
     case 'REQUEST_AUTHENTICATE':
       return Object.assign({}, state, {
