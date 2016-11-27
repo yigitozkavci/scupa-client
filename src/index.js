@@ -11,7 +11,9 @@ import Home from './components/Home';
 import App from './components/App';
 
 let store = createStore(reducers, {
-  isAuthenticated: localStorage.getItem('auth_token')
+  auth: {
+    isAuthenticated: localStorage.getItem('auth_token')
+  }
 }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(

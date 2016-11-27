@@ -5,8 +5,8 @@ import fetch from 'isomorphic-fetch';
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.isAuthenticated,
-    isFetching: state.isFetching
+    isAuthenticated: state.auth.isAuthenticated,
+    isFetching: state.auth.isFetching
   };
 }
 
