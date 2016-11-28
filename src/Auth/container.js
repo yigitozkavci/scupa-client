@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { requestAuthenticate, receiveUnauthorized, receiveAuthenticate, logout } from '../../actions/auth';
-import LoginBox from '../../components/LoginBox'
+import { requestAuthenticate, receiveUnauthorized, receiveAuthenticate, logout } from '../actions/auth';
+import LoginBox from './LoginBox'
 import fetch from 'isomorphic-fetch';
 
 const mapStateToProps = (state) => {
@@ -43,3 +43,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginBox);
+

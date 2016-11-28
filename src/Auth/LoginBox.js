@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css';
+import { DatePicker } from 'antd';
+import 'antd/dist/antd.css';
 
 const LoginBox = ({ isAuthenticated, isFetching, authenticate, logout }) => {
   let email, password;
@@ -13,6 +15,7 @@ const LoginBox = ({ isAuthenticated, isFetching, authenticate, logout }) => {
       : <button onClick={ () => authenticate(email.value, password.value) }>Authenticate</button>
   return (
     <div className="loginbox-container">
+      <DatePicker />
       <div className="loginbox">
         <h2>Login Form</h2>
         <input className="form-control" type="email" ref={ node => {
@@ -32,4 +35,5 @@ const LoginBox = ({ isAuthenticated, isFetching, authenticate, logout }) => {
 }
 
 export default LoginBox;
+
 
