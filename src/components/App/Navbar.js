@@ -1,7 +1,7 @@
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const NavbarInstance = (
   <Navbar inverse collapseOnSelect>

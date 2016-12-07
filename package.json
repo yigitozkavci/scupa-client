@@ -3,14 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "express": "^4.14.0",
+    "node-sass": "^3.13.0",
+    "react-scripts": "0.7.0",
+    "sass-loader": "^4.0.2",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.13.2"
   },
   "dependencies": {
-    "antd": "^2.5.0",
+    "babel-loader": "^6.2.8",
     "babel-plugin-import": "^1.1.0",
-    "concurrently": "^3.1.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
     "isomorphic-fetch": "^2.2.1",
-    "node-sass": "^3.13.0",
     "react": "^15.4.1",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
@@ -21,9 +30,7 @@
     "redux": "^3.6.0"
   },
   "scripts": {
-    "start": "./node_modules/.bin/concurrently -r './node_modules/.bin/node-sass src -w -o src -r' 'react-scripts start'",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "dev": "./node_modules/.bin/webpack -d --watch",
+    "build": "webpack -p"
   }
 }
