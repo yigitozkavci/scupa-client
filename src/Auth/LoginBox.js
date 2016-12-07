@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.scss';
+import { Col } from 'react-bootstrap';
 
 const LoginBox = ({ isAuthenticated, isFetching, authenticate, logout }) => {
   let email, password;
@@ -14,18 +15,20 @@ const LoginBox = ({ isAuthenticated, isFetching, authenticate, logout }) => {
   return (
     <div className="loginbox-container">
       <div className="loginbox">
-        <h2>Login Form</h2>
-        <input className="form-control" type="email" ref={ node => {
-          email = node
-        }} />
-        <input className="form-control" type="password" ref={ node => {
-          password = node
-        }} />
-        <p>
-          { authButton }
-        </p>
-        { loadingSpinner }
-        <p className={ isAuthenticated ? 'authenticated' : 'not-authenticated' }>{ status }</p>
+        <Col xs={12} md={6} mdOffset={3}>
+          <h2>Login Form</h2>
+          <input className="form-control" type="email" ref={ node => {
+            email = node
+          }} />
+          <input className="form-control" type="password" ref={ node => {
+            password = node
+          }} />
+          <p>
+            { authButton }
+          </p>
+          { loadingSpinner }
+          <p className={ isAuthenticated ? 'authenticated' : 'not-authenticated' }>{ status }</p>
+        </Col>
       </div>
     </div>
   );
