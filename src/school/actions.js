@@ -16,3 +16,4 @@ export const failSchoolsIndex = () => {
     type: 'FAIL_SCHOOLS_INDEX'
   }
 }
+

@@ -36,6 +36,7 @@ var config = {
     contentBase: 'public',
     devtool: 'eval',
     historyApiFallback: true,
+    inline: true,
   },
 };
 
