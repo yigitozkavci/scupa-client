@@ -1,5 +1,5 @@
 import React from 'react';
-import { startSchoolsIndex, successSchoolsIndex, failSchoolsIndex } from '../actions/schools';
+import { startSchoolsIndex, successSchoolsIndex, failSchoolsIndex } from './actions';
 import { connect } from 'react-redux';
 import SchoolItem from './SchoolItem';
 

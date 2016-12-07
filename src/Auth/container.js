@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestAuthenticate, receiveUnauthorized, receiveAuthenticate, logout } from '../actions/auth';
+import { requestAuthenticate, receiveUnauthorized, receiveAuthenticate, logout } from './actions';
 import LoginBox from './LoginBox'
 import fetch from 'isomorphic-fetch';
 
