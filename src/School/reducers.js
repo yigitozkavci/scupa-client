@@ -25,3 +25,4 @@ const schools = (state = {
 }
 
 export default schools;
+

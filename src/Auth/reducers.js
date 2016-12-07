@@ -1,7 +1,8 @@
 const auth = (state = {
   isFetching: false,
   error: false,
-  isAuthenticated: false }, action) => {
+  isAuthenticated: localStorage.getItem('auth_token')
+}, action) => {
   switch(action.type) {
     case 'REQUEST_AUTHENTICATE':
       return Object.assign({}, state, {
@@ -34,3 +35,4 @@ const auth = (state = {
 }
 
 export default auth;
+
