@@ -7,10 +7,13 @@ var APP_DIR = path.resolve(__dirname, 'src');
 var config = {
   // Gives you sourcemaps without slowing down rebundling
   devtool: 'eval-source-map',
-  entry: path.join(__dirname, 'src/index.js'),
+  entry: path.join(__dirname, 'src/index.tsx'),
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
+  resolve: {
+    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+  },
   output: {
     path: path.join(BUILD_DIR),
     filename: 'bundle.js',
@@ -29,9 +32,16 @@ var config = {
       {
         test: /\.css?$/,
         loader: 'style!css'
-      }
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader"
+      },
     ]
   },
+  preLoaders: [
+    { test: /\.js$/, loader: "source-map-loader" }
+  ],
   devServer: {
     contentBase: 'public',
     devtool: 'eval',

@@ -1,3 +1,5 @@
+/// <reference path="./typings.d.ts" />
+
 export const requestAuthenticate = () => {
   return {
     type: 'REQUEST_AUTHENTICATE'
@@ -10,7 +12,7 @@ export const receiveUnauthorized = () => {
   }
 }
 
-export const receiveAuthenticate = (token) => {
+export const receiveAuthenticate = (token: string) => {
   return {
     type: 'RECEIVE_AUTHENTICATE',
     data: {
@@ -23,5 +25,4 @@ export const logout = () => {
   return {
     type: 'LOGOUT'
   }
-} 
-
+}

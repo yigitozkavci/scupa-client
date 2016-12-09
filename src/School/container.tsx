@@ -1,29 +1,39 @@
-import React from 'react';
+/// <reference path="../typings.d.ts" />
+
+import * as React from 'react';
 import { startSchoolsIndex, successSchoolsIndex, failSchoolsIndex } from './actions';
 import { connect } from 'react-redux';
 import SchoolItem from './SchoolItem';
+import * as fetch from 'isomorphic-fetch';
 
-class SchoolContainer extends React.Component {
+
+interface ISchoolContainerProps extends React.Props<SchoolContainer> {
+    schools: any[];
+    loadSchools: () => void;
+}
+
+interface ISchoolContainerState {
+}
+
+class SchoolContainer extends React.Component<ISchoolContainerProps, {}> {
   componentDidMount() {
     this.props.loadSchools();
   }
 
   render() {
-    var rows = [];
-    if(this.props.schools) {
-      for(var i = 0; i < this.props.schools.length; i++) {
-        rows.push(<SchoolItem key={ i } school={ this.props.schools[i] } />);
-      }
+    let rows: JSX.Element[] = [];
+    for(var i = 0; i < this.props.schools.length; i++) {
+      rows.push(<SchoolItem key={ i } school={ this.props.schools[i] } />);
     }
     return (
       <div>
-        { rows }       
+        { rows }
       </div>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     loadSchools: () => {
       dispatch(startSchoolsIndex());
@@ -42,11 +52,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: State) => {
   return {
-    schools: state.schools.schools
+    schools: state.school.schools
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SchoolContainer);
-

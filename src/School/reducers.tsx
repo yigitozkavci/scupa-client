@@ -1,6 +1,6 @@
-const schools = (state = {
-  schools: []
-}, action) => {
+/// <reference path="typings.d.ts" />
+
+function school(state: SchoolState = { schools: [] }, action: Action) {
   switch(action.type) {
     case 'START_SCHOOLS_INDEX':
       return Object.assign({}, state, {
@@ -23,6 +23,5 @@ const schools = (state = {
       return state;
   }
 }
-
-export default schools;
+export default school;
 

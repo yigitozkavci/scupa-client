@@ -1,21 +1,22 @@
+/// <reference path="../typings.d.ts" />
+
 import { connect } from 'react-redux';
 import { requestAuthenticate, receiveUnauthorized, receiveAuthenticate, logout } from './actions';
 import LoginBox from './LoginBox'
-import fetch from 'isomorphic-fetch';
-
-const mapStateToProps = (state) => {
+import * as fetch from 'isomorphic-fetch';
+const mapStateToProps = (state: State) => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
     isFetching: state.auth.isFetching
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-    authenticate: (email, password) => {
+    authenticate: (email: string, password: string) => {
       dispatch(requestAuthenticate());
 
-      let loginData = {
+      let loginData: RequestInit = {
         method: 'POST',
         headers: {
           'Content-Type':'application/x-www-form-urlencoded'
@@ -43,4 +44,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginBox);
-

@@ -1,8 +1,12 @@
-const auth = (state = {
-  isFetching: false,
+/// <reference path="typings.d.ts" />
+
+let initialState: AuthState = {
+  isAuthenticated: !!localStorage.getItem('auth_token'),
   error: false,
-  isAuthenticated: localStorage.getItem('auth_token')
-}, action) => {
+  isFetching: false
+}
+
+function auth(state = initialState, action: AuthAction) {
   switch(action.type) {
     case 'REQUEST_AUTHENTICATE':
       return Object.assign({}, state, {
