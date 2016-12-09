@@ -9,7 +9,12 @@ interface ILoginBoxProps {
   logout: () => void;
 }
 
-class LoginBox extends React.Component<ILoginBoxProps, {}> {
+// We don't need state here. Just to demonstrate.
+interface ILoginBoxState {
+
+}
+
+class LoginBox extends React.Component<ILoginBoxProps, ILoginBoxState> {
   render() {
     let authStatus = this.props.isAuthenticated ? 'Authenticated' : 'Not authenticated' ;
     let loadingSpinner: any;
